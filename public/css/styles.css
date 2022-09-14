@@ -87,9 +87,6 @@
     margin-bottom: 30px;
   }
 
-  #cards-container {
-    display: flex;
-  }
 
   #events-container .card {
     flex: 1 1 0;
