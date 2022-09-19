@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Title</title>
+    <title>@yield('title')</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light px-3">
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand">

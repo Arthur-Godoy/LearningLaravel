@@ -11,7 +11,6 @@
 
   header {
     background-color: #FFF;
-    border-bottom: 1px solid #CCC;
   }
 
   .row {
@@ -20,16 +19,6 @@
 
   .container-fluid {
     padding: 0;
-  }
-
-  .btn-primary {
-    background-color: #F2A340;
-    border: 2px solid #C28008;
-  }
-
-  .btn-primary:hover {
-    background-color: #C28008;
-    border-color: #C28008;
   }
 
   /* navbar */
@@ -43,13 +32,8 @@
     padding: 5px 10px;
   }
 
-  #navbar a {
-    font-size: 14px;
-    color: #757575;
-  }
-
-  #navbar a:hover {
-    color: #F2A340;
+  #navbar a{
+    color: rgb(56, 56, 56);
   }
 
   /* Search Container */
@@ -63,7 +47,7 @@
   }
 
   #search-container h1 {
-    color: #F2A340;
+    color: #6b88e7;
     margin-bottom: 30px;
     font-weight: 900;
   }
