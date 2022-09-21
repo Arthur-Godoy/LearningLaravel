@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -27,7 +28,7 @@ class EventController extends Controller
 
     public function store(Request $request){
         $event = new Event;
-
+        $event->user_id = auth()->user()->id;
         $event->title = $request->name;
         $event->city = $request->city;
         $event->private= $request->privacy;
@@ -48,6 +49,18 @@ class EventController extends Controller
 
     public function show($id){
         $event = Event::findOrFail($id);
-        return view('events.show',['event' => $event]);
+        $owner = User::where('id', $event->user_id)->first()->toArray();
+        return view('events.show',['event' => $event],['owner' => $owner['name']]);
+    }
+
+    public function dashboard(){
+        $user = auth()->user();
+        $events = $user->events;
+        return view('events.dashboard', ['events' => $events],['user' => $user]);
+    }
+
+    public function destroy($id){
+        Event::findOrFail($id)->delete();
+        return redirect('/')->with('msg', 'Evento Deletado com Sucesso');
     }
 }

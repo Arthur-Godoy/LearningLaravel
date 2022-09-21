@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'HCD Events - {{$event->title}}')
+@section('title', 'HCD Events - Detalhes')
 
 @section('content')
     <div class="container row mt-3">
@@ -11,7 +11,7 @@
                         <p class="pr-3 fs-6 d-inline"><ion-icon name="cube"></ion-icon> Palco</p>
                         @break
                     @case('assentos')
-                        <p class="mr-3 fs-6 d-inline"><ion-icon name="arrow-forward"></ion-icon> Assentos Garantidos</p>
+                        <p class="mr-3 fs-6 d-inline"><ion-icon name="checkmark-circle"></ion-icon> Assentos Garantidos</p>
                         @break
                     @case('openBar')
                         <p class="mr-3 fs-6 d-inline"><ion-icon name="beer"></ion-icon> Open Bar</p>
@@ -26,7 +26,7 @@
             <h1 class="display-6">{{ $event->title }}</h1>
             <p class="mb-3 fs-6"><ion-icon name="pin"></ion-icon> {{ $event->city }}</p>
             <p class="mb-3 fs-6"><ion-icon name="people"></ion-icon> 0 Participantes</p>
-            <p class="mb-3 fs-6"><ion-icon name="star"></ion-icon> Promovido por: </p>
+            <p class="mb-3 fs-6"><ion-icon name="star"></ion-icon> Promovido por: {{ $owner }}</p>
             <button class="p-2 btn btn-primary">Confirmar Presença</button>
         </div>
         <div class=" mt-2 col-md-9 offset-2 justify">
