@@ -25,9 +25,22 @@
         <div class="col-md-5">
             <h1 class="display-6">{{ $event->title }}</h1>
             <p class="mb-3 fs-6"><ion-icon name="pin"></ion-icon> {{ $event->city }}</p>
-            <p class="mb-3 fs-6"><ion-icon name="people"></ion-icon> 0 Participantes</p>
+            <p class="mb-3 fs-6"><ion-icon name="people"></ion-icon> {{ count($event->users) }} Participantes</p>
             <p class="mb-3 fs-6"><ion-icon name="star"></ion-icon> Promovido por: {{ $owner }}</p>
-            <button class="p-2 btn btn-primary">Confirmar Presença</button>
+            @if($isSub)
+                <form method="POST" action="/events/leave/{{ $event->id }}">
+                    @csrf
+                    @method('DELETE')
+                    <h6 class="mx-3 mb-3 text-muted">Você já está inscrito</h6>
+                    <button type="submit" class="p-2 btn btn-danger">Cancelar Presença</button>
+                </form>
+            @else
+                <form method="POST" action="/events/join/{{ $event->id }}">
+                    @csrf
+                    <button type="submit" class="p-2 btn btn-primary">Confirmar Presença</button>
+                </form>
+            @endif
+
         </div>
         <div class=" mt-2 col-md-9 offset-2 justify">
             <h5 class="fw-bold">Sobre o Evento:</h5>

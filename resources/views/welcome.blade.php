@@ -3,7 +3,7 @@
 @section('title', 'HDC Events')
 
 @section('content')
-    <div id="search-container" class="col-md-12">
+    <div id="search-container" class="col-md-12 text-center">
         <h1>Busque um evento</h1>
         <form action="/" method="get">
             <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <p class="card-date">{{ date('d/m/Y', strtotime($event->date)) }}</p>
                     <h5 class="card-title">{{ $event->title }}</h5>
-                    <p class="card-participants">X Participantes</p>
+                    <p class="card-participants">{{ count($event->users) }} Participantes</p>
                     <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber mais</a>
                 </div>
             </div>
